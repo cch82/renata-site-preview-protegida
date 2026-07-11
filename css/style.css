@@ -1257,7 +1257,7 @@ h3 {
     background: var(--secondary);
 }
 
-/* Recorta o chrome do Google My Maps (título "Untitled map", autor, legenda lateral) */
+/* Recorte mínimo do My Maps: só o cartão de título/autor no canto, sem máscara visual */
 .map-iframe-clip {
     position: absolute;
     inset: 0;
@@ -1267,30 +1267,12 @@ h3 {
 .map-iframe-clip iframe {
     position: absolute;
     border: 0;
-    /* Desloca e amplia o iframe para empurrar o painel de título/autor para fora da área visível */
-    top: -72px;
-    left: -320px;
-    width: calc(100% + 320px + 40px);
-    height: calc(100% + 72px + 40px);
+    /* Deslocamento leve — mapa quase em tela cheia na área do card */
+    top: -48px;
+    left: -18px;
+    width: calc(100% + 36px);
+    height: calc(100% + 64px);
     max-width: none;
-}
-
-/* Máscara extra no canto superior esquerdo (caso reste resquício do cartão do My Maps) */
-.map-chrome-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: min(42%, 280px);
-    height: 96px;
-    z-index: 2;
-    pointer-events: none;
-    background: linear-gradient(
-        135deg,
-        var(--bg-color) 0%,
-        var(--bg-color) 38%,
-        rgba(253, 251, 247, 0.85) 58%,
-        transparent 78%
-    );
 }
 
 .map-overlay-badge {
@@ -1317,15 +1299,10 @@ h3 {
 
 @media (max-width: 768px) {
     .map-iframe-clip iframe {
-        top: -56px;
-        left: -260px;
-        width: calc(100% + 260px + 24px);
-        height: calc(100% + 56px + 24px);
-    }
-
-    .map-chrome-mask {
-        width: min(55%, 220px);
-        height: 80px;
+        top: -40px;
+        left: -12px;
+        width: calc(100% + 24px);
+        height: calc(100% + 52px);
     }
 }
 
